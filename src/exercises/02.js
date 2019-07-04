@@ -1,6 +1,6 @@
 // Compound Components
 
-import React from 'react'
+import React, { Children, cloneElement } from 'react'
 import {Switch} from '../switch'
 
 class Toggle extends React.Component {
@@ -17,6 +17,10 @@ class Toggle extends React.Component {
   //    Note that they will _not_ have access to Toggle instance properties
   //    like `this.state.on` or `this.toggle`.
   state = {on: false}
+
+  static On = ({ children, on }) => on && children;
+  static Off = ({ children, on }) => !on && children;
+  static Button = ({ on, toggle }) => <Switch on={on} onClick={toggle} />;
   toggle = () =>
     this.setState(
       ({on}) => ({on: !on}),
@@ -33,8 +37,19 @@ class Toggle extends React.Component {
     // 2. React.cloneElement: https://reactjs.org/docs/react-api.html#cloneelement
     //
     // 🐨 you'll want to completely replace the code below with the above logic.
-    const {on} = this.state
-    return <Switch on={on} onClick={this.toggle} />
+
+    return (
+      <div>
+        {
+          Children.map(this.props.children, child => (
+              cloneElement(
+                child,
+                { on: this.state.on, toggle: this.toggle }
+              )
+          ))
+        }    
+      </div>
+    )
   }
 }
 
