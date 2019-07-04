@@ -29,7 +29,7 @@ test('renders a toggle component', () => {
 http://ws.kcd.im/?ws=react%20patterns&e=02&em=adrian_serna_92@hotmail.com
 */
 test('I submitted my elaboration and feedback', () => {
-  const submitted = true // change this when you've submitted!
+  const submitted = true
   expect(submitted).toBe(true)
 })
 ////////////////////////////////
