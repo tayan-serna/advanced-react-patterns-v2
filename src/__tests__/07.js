@@ -1,7 +1,7 @@
 import React from 'react'
 import {renderToggle, fireEvent} from '../../test/utils'
-import Usage, { Toggle } from '../exercises-final/07'
-// import Usage, { Toggle } from '../exercises/07'
+// import Usage, { Toggle } from '../exercises-final/07'
+import Usage, { Toggle } from '../exercises/07'
 
 test('renders a toggle component', () => {
   const handleToggle = jest.fn()
@@ -39,10 +39,10 @@ test('toggle uses default props', () => {
 // 3. Change submitted from `false` to `true`
 // 4. And you're all done!
 /*
-http://ws.kcd.im/?ws=react%20patterns&e=07&em=
+http://ws.kcd.im/?ws=react%20patterns&e=07&em=adrian_serna_92@hotmail.com
 */
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
+test('I submitted my elaboration and feedback', () => {
+  const submitted = true // change this when you've submitted!
   expect(submitted).toBe(true)
 })
 ////////////////////////////////
